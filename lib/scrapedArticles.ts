@@ -13,7 +13,7 @@ export type ScrapedArticle = {
   error?: string;
 };
 
-const scraped = scrapedRaw as Record<string, ScrapedArticle>;
+const scraped = scrapedRaw as unknown as Record<string, ScrapedArticle>;
 
 export function getScrapedArticle(slug: string): ScrapedArticle | null {
   const entry = scraped[slug];
