@@ -11,105 +11,85 @@ export const metadata = {
 
 export default function QbankPage() {
   return (
-    <div>
+    <div className="font-sans bg-slate-50 min-h-screen">
       <PageTopBand />
 
-      <section
-        style={{
-          background: "linear-gradient(180deg, #E3F2FD 0%, #ffffff 100%)",
-        }}
-      >
-        <div className="mx-auto max-w-3xl px-6 lg:px-10 py-16 lg:py-20 text-center">
-          <div
-            className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[12px] font-bold tracking-wider uppercase"
-            style={{ backgroundColor: "#5E35B1", color: "#ffffff" }}
-          >
-            <Sparkles className="h-3.5 w-3.5" />
+      <section className="bg-gradient-to-b from-accent-light to-slate-50">
+        <div className="mx-auto max-w-[1000px] px-6 lg:px-10 py-16 lg:py-24 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[12px] font-bold tracking-wider uppercase bg-cta text-white shadow-sm mb-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <Sparkles className="h-4 w-4" />
             Demo · 8 sample questions
           </div>
 
-          <h1
-            className="mt-6 text-[40px] sm:text-[52px] font-extrabold leading-[1.05] tracking-tight"
-            style={{ color: "#003366" }}
-          >
-            Welcome to the{" "}
-            <span style={{ color: "#3BADFF" }}>Question Bank</span>
+          <h1 className="text-[42px] sm:text-[56px] font-extrabold leading-[1.05] tracking-tight text-primary">
+            Welcome to the <span className="text-secondary">Question Bank</span>
           </h1>
 
-          <p
-            className="mx-auto mt-6 max-w-2xl text-[17px] leading-relaxed"
-            style={{ color: "#1a1a1a" }}
-          >
+          <p className="mx-auto mt-6 max-w-2xl text-[17px] sm:text-[18px] leading-relaxed text-ink-body">
             UKMLA-style multiple-choice questions with explanations linked
             directly to the relevant Guideline Genius article — answer the
             question, then read the source guideline alongside the explanation.
             The same loop you'd get from Amboss or Quesmed.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/qbank/session"
-              className="inline-flex h-12 items-center px-7 rounded-md text-white font-bold text-[16px] transition-opacity hover:opacity-90"
-              style={{ backgroundColor: "#5E35B1" }}
+              className="w-full sm:w-auto inline-flex items-center justify-center h-14 px-8 rounded-xl text-white font-bold text-[16px] bg-cta hover:bg-cta-600 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
             >
               Start the demo
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
             <Link
               href="/articles"
-              className="inline-flex h-12 items-center px-6 rounded-md font-semibold text-[15px] hover:bg-white/40 transition-colors"
-              style={{ color: "#003366", border: "1.5px solid #003366" }}
+              className="w-full sm:w-auto inline-flex items-center justify-center h-14 px-8 rounded-xl font-bold text-[16px] text-primary bg-white border-2 border-primary hover:bg-primary-50 transition-all shadow-sm"
             >
-              Browse articles instead
+              Browse articles
             </Link>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
             <Feature
-              icon={<Target className="h-4 w-4" />}
+              icon={<Target className="h-5 w-5" />}
               title="UKMLA-aligned"
               body="Each question maps to a specialty in the UKMLA content map and links back to a real article."
             />
             <Feature
-              icon={<Brain className="h-4 w-4" />}
+              icon={<Brain className="h-5 w-5" />}
               title="Article side-by-side"
               body="Submit your answer and the source guideline opens in the right pane — read both together."
             />
             <Feature
-              icon={<Repeat className="h-4 w-4" />}
+              icon={<Repeat className="h-5 w-5" />}
               title="Coming soon"
               body="Spaced-repetition, full UKMLA bank, performance analytics and timed mocks."
             />
           </div>
 
-          <div
-            className="mx-auto mt-12 max-w-xl rounded-md p-4 text-[13.5px] text-left"
-            style={{
-              backgroundColor: "#fff7ed",
-              border: "1px solid #fed7aa",
-              color: "#7c2d12",
-            }}
-          >
-            <strong>Beta preview.</strong> {DEMO_QUESTIONS.length} sample
-            questions are loaded right now. The full bank, account-tied
-            progress and the spaced-repetition engine arrive in the next
-            phase. To get notified at full launch, subscribe below.
+          <div className="mx-auto mt-16 max-w-2xl rounded-2xl p-5 text-[14px] text-left bg-amber-50 border border-amber-200 text-amber-900 shadow-sm flex gap-4">
+            <div className="shrink-0 mt-0.5">
+              <Sparkles className="h-5 w-5 text-amber-500" />
+            </div>
+            <div>
+              <strong className="font-bold text-amber-900">Beta preview.</strong>{" "}
+              {DEMO_QUESTIONS.length} sample questions are loaded right now. The full bank, account-tied
+              progress and the spaced-repetition engine arrive in the next
+              phase. To get notified at full launch, subscribe below.
+            </div>
           </div>
 
           <form className="mx-auto mt-8 flex flex-col sm:flex-row gap-3 max-w-md">
             <input
               type="email"
               placeholder="Your email"
-              className="flex-1 h-11 px-5 rounded-md border bg-white text-[15px] focus:outline-none focus:ring-2"
-              style={{ borderColor: "#cfd8e3" }}
+              className="flex-1 h-12 px-5 rounded-xl border border-line bg-white text-[15px] text-ink-body focus:outline-none focus:ring-2 focus:ring-secondary shadow-sm"
             />
             <button
               type="button"
-              className="inline-flex h-11 items-center justify-center px-5 rounded-md text-white font-bold transition-opacity hover:opacity-90"
-              style={{ backgroundColor: "#003366" }}
+              className="inline-flex h-12 items-center justify-center px-6 rounded-xl text-white font-bold bg-primary hover:bg-primary-700 transition-all shadow-sm"
             >
               <Bell className="h-4 w-4 mr-2" />
-              Notify me at launch
+              Notify me
             </button>
           </form>
         </div>
@@ -128,20 +108,14 @@ function Feature({
   body: string;
 }) {
   return (
-    <div
-      className="rounded-md p-5 bg-white"
-      style={{ border: "1px solid #cfd8e3" }}
-    >
-      <div
-        className="inline-flex h-8 w-8 items-center justify-center rounded-md"
-        style={{ backgroundColor: "#E3F2FD", color: "#003366" }}
-      >
+    <div className="rounded-2xl p-6 bg-white border border-line shadow-sm hover:shadow-md transition-shadow">
+      <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent-light text-primary mb-4">
         {icon}
       </div>
-      <h3 className="mt-3 text-[15px] font-bold" style={{ color: "#003366" }}>
+      <h3 className="text-[16px] font-bold text-ink-headline mb-2">
         {title}
       </h3>
-      <p className="mt-2 text-[13px] leading-relaxed" style={{ color: "#1a1a1a" }}>
+      <p className="text-[14px] leading-relaxed text-ink-body">
         {body}
       </p>
     </div>

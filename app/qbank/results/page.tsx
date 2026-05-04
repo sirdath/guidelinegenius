@@ -10,7 +10,11 @@ import {
   RotateCcw,
   Home,
   ArrowRight,
+  Trophy,
+  Target,
+  BarChart3,
 } from "lucide-react";
+import clsx from "clsx";
 
 type SessionData = {
   current: number;
@@ -33,13 +37,14 @@ export default function ResultsPage() {
 
   if (!session) {
     return (
-      <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="text-center" style={{ color: "#1a1a1a" }}>
-          <p className="text-[16px]">No session results found.</p>
+      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-slate-50">
+        <div className="text-center max-w-sm">
+          <Trophy className="h-16 w-16 text-slate-300 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-ink-headline mb-2">No Results Found</h2>
+          <p className="text-[16px] text-ink-body mb-6">You haven't completed a session yet.</p>
           <Link
             href="/qbank"
-            className="mt-4 inline-flex items-center h-11 px-6 rounded-md text-white font-bold"
-            style={{ backgroundColor: "#5E35B1" }}
+            className="inline-flex items-center justify-center h-12 w-full rounded-xl text-white font-bold bg-cta hover:bg-cta-600 transition-all shadow-sm"
           >
             Start a session
           </Link>
@@ -63,175 +68,174 @@ export default function ResultsPage() {
   const sec = totalSeconds % 60;
 
   return (
-    <div style={{ backgroundColor: "#F5F8FB" }} className="min-h-[80vh]">
-      <div className="mx-auto max-w-[960px] w-full px-5 lg:px-8 py-10 lg:py-14">
-        <h1
-          className="text-center text-[34px] sm:text-[42px] font-extrabold tracking-tight"
-          style={{ color: "#003366" }}
-        >
-          Session{" "}
-          <span style={{ color: "#3BADFF" }}>complete</span>
-        </h1>
+    <div className="min-h-screen bg-slate-50 font-sans pb-16">
+      <div className="mx-auto max-w-[1000px] w-full px-5 lg:px-8 py-10 lg:py-16">
+        
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-primary-50 text-primary mb-4">
+            <Trophy className="h-8 w-8" />
+          </div>
+          <h1 className="text-[34px] sm:text-[44px] font-extrabold tracking-tight text-ink-headline">
+            Session <span className="text-secondary">Complete</span>
+          </h1>
+          <p className="mt-3 text-[16px] text-ink-body">
+            Great job! Here's how you performed in this session.
+          </p>
+        </div>
 
-        <div
-          className="mt-8 rounded-md bg-white p-7 grid grid-cols-1 sm:grid-cols-3 gap-5"
-          style={{ border: "1px solid #cfd8e3" }}
-        >
-          <Stat
-            label="Score"
+        {/* Gamified Stat Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <StatCard
+            label="Overall Score"
             value={`${score}%`}
-            sub={`${correct.length} / ${submitted.length} correct`}
-            color={score >= 80 ? "#16a34a" : score >= 60 ? "#5E35B1" : "#dc2626"}
+            sub={`${correct.length} out of ${submitted.length} correct`}
+            colorClass={score >= 80 ? "text-green-600" : score >= 60 ? "text-cta" : "text-red-600"}
+            bgClass={score >= 80 ? "bg-green-50" : score >= 60 ? "bg-cta-50" : "bg-red-50"}
+            icon={<Target className="h-5 w-5" />}
           />
-          <Stat
-            label="Answered"
+          <StatCard
+            label="Questions Answered"
             value={`${submitted.length}/${DEMO_QUESTIONS.length}`}
-            sub={`${DEMO_QUESTIONS.length - submitted.length} skipped`}
-            color="#003366"
+            sub={`${DEMO_QUESTIONS.length - submitted.length} questions skipped`}
+            colorClass="text-primary"
+            bgClass="bg-primary-50"
+            icon={<BarChart3 className="h-5 w-5" />}
           />
-          <Stat
-            label="Time"
+          <StatCard
+            label="Time Spent"
             value={min > 0 ? `${min}m ${sec}s` : `${sec}s`}
             sub={
               submitted.length > 0
                 ? `~${Math.round(totalSeconds / Math.max(1, submitted.length))}s per question`
                 : "—"
             }
-            color="#003366"
-            icon={<Clock className="h-4 w-4" />}
+            colorClass="text-primary"
+            bgClass="bg-primary-50"
+            icon={<Clock className="h-5 w-5" />}
           />
         </div>
 
-        <h2
-          className="mt-10 text-[20px] font-bold"
-          style={{ color: "#003366" }}
-        >
-          Per-question review
-        </h2>
-        <ul
-          className="mt-4 divide-y rounded-md bg-white overflow-hidden"
-          style={{ border: "1px solid #cfd8e3" }}
-        >
-          {DEMO_QUESTIONS.map((q, i) => {
-            const sel = session.selected[q.id];
-            const subbed = session.submitted[q.id];
-            const flagged = session.flagged[q.id];
-            const opt = q.options.find((o) => o.id === sel);
-            const isCorrect = opt?.correct;
-            return (
-              <li
-                key={q.id}
-                className="px-5 py-4 flex items-start gap-4"
-                style={{ borderColor: "#eef0f4" }}
-              >
-                <span
-                  className="h-7 w-7 shrink-0 inline-flex items-center justify-center rounded-md text-[12px] font-bold"
-                  style={{
-                    backgroundColor: !subbed
-                      ? "#f4f6fa"
-                      : isCorrect
-                        ? "#dcfce7"
-                        : "#fee2e2",
-                    color: !subbed ? "#6B6A6A" : isCorrect ? "#16a34a" : "#dc2626",
-                  }}
-                >
-                  {i + 1}
-                </span>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span
-                      className="text-[11.5px] font-bold uppercase tracking-wider"
-                      style={{ color: "#3BADFF" }}
-                    >
-                      {q.category}
-                    </span>
-                    {flagged && (
-                      <span
-                        className="inline-flex items-center gap-1 text-[10.5px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded"
-                        style={{ backgroundColor: "#fef3c7", color: "#854d0e" }}
-                      >
-                        <Flag className="h-2.5 w-2.5" />
-                        Flagged
-                      </span>
-                    )}
-                    {!subbed && (
-                      <span
-                        className="text-[10.5px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded"
-                        style={{ backgroundColor: "#f4f6fa", color: "#6B6A6A" }}
-                      >
-                        Skipped
-                      </span>
-                    )}
-                  </div>
-                  <p
-                    className="mt-1 text-[14.5px] font-semibold leading-snug"
-                    style={{ color: "#1a1a1a" }}
+        {/* Review List */}
+        <div className="mt-14">
+          <h2 className="text-[22px] font-bold text-ink-headline mb-6 flex items-center gap-2">
+            Per-question review
+          </h2>
+          <div className="bg-white rounded-2xl shadow-sm border border-line overflow-hidden">
+            <ul className="divide-y divide-line">
+              {DEMO_QUESTIONS.map((q, i) => {
+                const sel = session.selected[q.id];
+                const subbed = session.submitted[q.id];
+                const flagged = session.flagged[q.id];
+                const opt = q.options.find((o) => o.id === sel);
+                const isCorrect = opt?.correct;
+                
+                return (
+                  <li
+                    key={q.id}
+                    className="p-5 sm:p-6 flex items-start gap-4 sm:gap-6 hover:bg-slate-50 transition-colors group"
                   >
-                    {q.stem}
-                  </p>
-                  {subbed && (
-                    <p className="mt-1.5 text-[13px]" style={{ color: "#5A6B7E" }}>
-                      Your answer: <strong style={{ color: isCorrect ? "#16a34a" : "#dc2626" }}>
-                        {sel}. {opt?.text}
-                      </strong>
-                      {!isCorrect && (
-                        <>
-                          {" · "}Correct: <strong style={{ color: "#16a34a" }}>
-                            {q.options.find((o) => o.correct)?.id}.{" "}
-                            {q.options.find((o) => o.correct)?.text}
-                          </strong>
-                        </>
+                    <div
+                      className={clsx(
+                        "h-8 w-8 shrink-0 inline-flex items-center justify-center rounded-lg text-[14px] font-bold mt-0.5",
+                        !subbed
+                          ? "bg-slate-100 text-ink-muted"
+                          : isCorrect
+                          ? "bg-green-100 text-green-700"
+                          : "bg-red-100 text-red-700"
                       )}
-                    </p>
-                  )}
-                </div>
-                <div className="shrink-0 flex items-center gap-2">
-                  {subbed && (
-                    isCorrect ? (
-                      <CheckCircle2 className="h-5 w-5" style={{ color: "#16a34a" }} />
-                    ) : (
-                      <XCircle className="h-5 w-5" style={{ color: "#dc2626" }} />
-                    )
-                  )}
-                  <a
-                    href={`/articles/${q.articleSlug}/`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[12.5px] font-semibold hover:underline"
-                    style={{ color: "#003366" }}
-                  >
-                    Article
-                    <ArrowRight className="h-3 w-3" />
-                  </a>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+                    >
+                      {i + 1}
+                    </div>
+                    
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap mb-1.5">
+                        <span className="text-[11.5px] font-bold uppercase tracking-wider text-secondary">
+                          {q.category}
+                        </span>
+                        {flagged && (
+                          <span className="inline-flex items-center gap-1 text-[10.5px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-amber-100 text-amber-800">
+                            <Flag className="h-3 w-3 fill-amber-500 text-amber-500" />
+                            Flagged
+                          </span>
+                        )}
+                        {!subbed && (
+                          <span className="text-[10.5px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-100 text-ink-muted">
+                            Skipped
+                          </span>
+                        )}
+                      </div>
+                      
+                      <p className="text-[15px] sm:text-[16px] font-semibold leading-snug text-ink-headline mb-3">
+                        {q.stem}
+                      </p>
+                      
+                      {subbed && (
+                        <div className="bg-slate-50 rounded-xl p-4 border border-line">
+                          <p className="text-[14px] text-ink-body mb-2">
+                            <span className="text-ink-muted mr-1">Your answer:</span>
+                            <strong className={isCorrect ? "text-green-600" : "text-red-600"}>
+                              {sel}. {opt?.text}
+                            </strong>
+                          </p>
+                          {!isCorrect && (
+                            <p className="text-[14px] text-ink-body">
+                              <span className="text-ink-muted mr-1">Correct answer:</span>
+                              <strong className="text-green-600">
+                                {q.options.find((o) => o.correct)?.id}.{" "}
+                                {q.options.find((o) => o.correct)?.text}
+                              </strong>
+                            </p>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                    
+                    <div className="shrink-0 flex flex-col items-end gap-3">
+                      {subbed && (
+                        isCorrect ? (
+                          <CheckCircle2 className="h-6 w-6 text-green-500" />
+                        ) : (
+                          <XCircle className="h-6 w-6 text-red-500" />
+                        )
+                      )}
+                      <a
+                        href={`/articles/${q.articleSlug}/`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-primary hover:text-secondary transition-colors"
+                      >
+                        Article
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </a>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+        {/* Action Buttons */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/qbank/session"
             onClick={() => {
               try { localStorage.removeItem("gg_qbank_session"); } catch {}
             }}
-            className="inline-flex items-center gap-1.5 h-12 px-6 rounded-md text-white font-bold transition-opacity hover:opacity-90"
-            style={{ backgroundColor: "#5E35B1" }}
+            className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-xl text-white font-bold text-[16px] bg-cta hover:bg-cta-600 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full sm:w-auto"
           >
-            <RotateCcw className="h-4 w-4" />
+            <RotateCcw className="h-5 w-5" />
             Try again
           </Link>
           <Link
             href="/articles"
-            className="inline-flex items-center gap-1.5 h-12 px-6 rounded-md font-bold"
-            style={{ border: "1.5px solid #003366", color: "#003366" }}
+            className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-xl font-bold text-[16px] text-primary bg-white border-2 border-primary hover:bg-primary-50 transition-all w-full sm:w-auto"
           >
             Browse articles
           </Link>
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 h-12 px-6 rounded-md font-semibold"
-            style={{ color: "#003366" }}
+            className="inline-flex items-center justify-center gap-2 h-14 px-6 rounded-xl font-semibold text-[15px] text-ink-body hover:text-primary transition-colors w-full sm:w-auto"
           >
             <Home className="h-4 w-4" />
             Home
@@ -242,32 +246,33 @@ export default function ResultsPage() {
   );
 }
 
-function Stat({
+function StatCard({
   label,
   value,
   sub,
-  color,
+  colorClass,
+  bgClass,
   icon,
 }: {
   label: string;
   value: string;
   sub: string;
-  color: string;
+  colorClass: string;
+  bgClass: string;
   icon?: React.ReactNode;
 }) {
   return (
-    <div>
-      <div
-        className="flex items-center gap-1.5 text-[11.5px] font-bold uppercase tracking-wider"
-        style={{ color: "#6B6A6A" }}
-      >
+    <div className="bg-white rounded-2xl p-6 border border-line shadow-sm flex flex-col items-center justify-center text-center">
+      <div className={clsx("inline-flex items-center justify-center h-10 w-10 rounded-full mb-3", bgClass, colorClass)}>
         {icon}
+      </div>
+      <div className="text-[12px] font-bold uppercase tracking-wider text-ink-muted mb-1">
         {label}
       </div>
-      <div className="mt-1.5 text-[34px] font-extrabold leading-none" style={{ color }}>
+      <div className={clsx("text-[38px] font-extrabold leading-none mb-2", colorClass)}>
         {value}
       </div>
-      <div className="mt-1 text-[12.5px]" style={{ color: "#5A6B7E" }}>
+      <div className="text-[13px] text-ink-body">
         {sub}
       </div>
     </div>
