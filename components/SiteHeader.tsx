@@ -27,9 +27,6 @@ export function SiteHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // QBank section uses its own header (blue, with QBank-only navigation)
-  if (pathname.startsWith("/qbank")) return null;
-
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
