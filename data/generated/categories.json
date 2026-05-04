@@ -1,0 +1,149 @@
+[
+  {
+    "slug": "acute-emergency",
+    "name": "Acute and Emergency",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/AE-logo.png",
+    "articleCount": 18
+  },
+  {
+    "slug": "cancer",
+    "name": "Cancer",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/Cancer-logo.png",
+    "articleCount": 11
+  },
+  {
+    "slug": "cardiovascular",
+    "name": "Cardiovascular",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/Cardiovascular-logo.png",
+    "articleCount": 30
+  },
+  {
+    "slug": "child-health",
+    "name": "Child Health",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/Child-health-logo.png",
+    "articleCount": 10
+  },
+  {
+    "slug": "dermatology",
+    "name": "Dermatology",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/Derm-logo.png",
+    "articleCount": 19
+  },
+  {
+    "slug": "drug-management-monitoring",
+    "name": "Drug Management / Monitoring",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/Drugs-logo.png",
+    "articleCount": 4
+  },
+  {
+    "slug": "ear-nose-throat",
+    "name": "Ear, Nose, and Throat (ENT)",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/ENT-logo.png",
+    "articleCount": 14
+  },
+  {
+    "slug": "endocrine-metabolic",
+    "name": "Endocrine and Metabolic",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/Endocrine-logo.png",
+    "articleCount": 36
+  },
+  {
+    "slug": "gastrointestinal-liver",
+    "name": "Gastrointestinal including Liver",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/GI-and-liver-logo.png",
+    "articleCount": 29
+  },
+  {
+    "slug": "haematology",
+    "name": "Haematology",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/Haematology-logo.png",
+    "articleCount": 29
+  },
+  {
+    "slug": "infection",
+    "name": "Infection",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/Infection-logo.png",
+    "articleCount": 7
+  },
+  {
+    "slug": "mental-health",
+    "name": "Mental Health",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/mental-health-logo.png",
+    "articleCount": 10
+  },
+  {
+    "slug": "musculoskeletal",
+    "name": "Musculoskeletal (MSK)",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/MSK-logo.png",
+    "articleCount": 16
+  },
+  {
+    "slug": "neurosciences",
+    "name": "Neurosciences",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/Neuroscience-logo.png",
+    "articleCount": 18
+  },
+  {
+    "slug": "obstetric-gynaecology",
+    "name": "Obstetric and Gynaecology (O&amp;G)",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/OBGYN-logo.png",
+    "articleCount": 67
+  },
+  {
+    "slug": "ophthalmology",
+    "name": "Ophthalmology",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/Ophthalmology-logo.png",
+    "articleCount": 6
+  },
+  {
+    "slug": "perioperative-medicine-anaesthesia",
+    "name": "Perioperative Medicine and Anaesthesia",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/Anaesthesia-logo.png",
+    "articleCount": 6
+  },
+  {
+    "slug": "renal-urology",
+    "name": "Renal and Urology",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/Renal-and-urology-logo.png",
+    "articleCount": 27
+  },
+  {
+    "slug": "respiratory",
+    "name": "Respiratory",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/Resp-logo.png",
+    "articleCount": 27
+  },
+  {
+    "slug": "sexual-health",
+    "name": "Sexual Health",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/Sexual-health-logo.png",
+    "articleCount": 12
+  },
+  {
+    "slug": "surgery",
+    "name": "Surgery",
+    "parent": null,
+    "image": "https://www.guidelinegenius.com/wp-content/uploads/2026/03/Surgery-logo.png",
+    "articleCount": 23
+  }
+]

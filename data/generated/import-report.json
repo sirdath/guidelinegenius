@@ -1,0 +1,20 @@
+{
+  "totalArticles": 383,
+  "totalCategories": 21,
+  "totalPages": 3,
+  "pagesImported": [
+    "about",
+    "membership",
+    "home-test"
+  ],
+  "attachmentsIndexed": 112,
+  "sampleTitles": [
+    "Contraception (Non-Emergency)",
+    "Pneumothorax",
+    "Hypertension (Primary)",
+    "Cervical Ectropion",
+    "Miscarriage"
+  ],
+  "longestArticleWords": 6989,
+  "averageReadingMinutes": 4
+}

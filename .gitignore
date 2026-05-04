@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Build output
+.next/
+out/
+build/
+dist/
+
+# Misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+next-env.d.ts
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local env files
+.env
+.env.local
+.env*.local
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Large source data — kept locally, not in repo
+data/wp-export.xml
+data/screenshots/
+data/screenshots-*/
+data/live-site/
+
+# Generated content used at build time IS committed (articles.json, categories.json, pages.json, import-report.json)

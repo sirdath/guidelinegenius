@@ -1,0 +1,38 @@
+[
+  {
+    "id": "157",
+    "slug": "about",
+    "title": "About",
+    "contentHtml": "<h1>AboutUs</h1>\t\t\t\t\t<h2>Who Are We?</h2>\t\t<p>Guideline Genius was created in 2024 with a clear purpose: to make UK medical guidelines easier to learn, understand, and apply. We develop structured, easy-to-follow learning resources based on UK clinical guidance and streamlined to the UKMLA content map - the core syllabus for UK medical school examinations. Our aim is to help learners feel more confident in both exams and clinical practice.</p><p>Right now, Guideline Genius is mainly designed for clinical-year medical students, with growing relevance for junior doctors who need quick, reliable, guideline-based information.</p><p>Our platform is written by medical students who understand the challenges of learning medicine and reviewed by specialist physicians who ensure accuracy and clinical relevance. By bringing guidance from organisations such as NICE, BTS, RCOG, RCUK, BOA, and BASHH into one place, we save users time and make navigating complex guidelines far more manageable.</p>\t\t\t<h2>What Do We Do?</h2>\t\t<p>We take complex clinical guidelines and reshape them into structured, high-yield summaries. Each topic is aligned with the UKMLA content map and organised to support both exam revision and real-world clinical understanding.</p><p>To support clearer and efficient learning, our articles use structured formats - bullet-point breakdowns, high-yield tables, flowcharts, collapsible sections, hover boxes, and pop-up explanations - helping users identify key information quickly or explore further detail when needed.</p><p>Where UK guidance is unavailable, we use reputable European and American sources, always clearly referenced and integrated into the same structured format. Everything we produce follows one guiding principle: create the kind of resource we wish we had during medical school.</p>\t\t\t<h2>How We Maintain Quality</h2>\t\t<p>Quality is central to our work. Every article follows a consistent, standardised structure and is manually updated whenever guidelines change. We use website and social media notices to ensure users are quickly informed of any relevant updates.</p><p>Our content policy involves review of articles by specialist physicians to ensure accuracy, alignment with current guidance, and to add practical clinical insight.</p><p>We reference all sources transparently and timestamp each article, helping users see how current the content is and giving them the option to verify the evidence or read more widely.</p>\t\t\t<h2>Future Plans</h2>\t\t<p>In the near future, we plan to develop a comprehensive question bank to complement our articles. We also intend to integrate AI-powered learning tools to deliver adaptive and personalised revision. In addition, a mobile app is in development to improve accessibility.</p>",
+    "excerpt": "AboutUs Who Are We? Guideline Genius was created in 2024 with a clear purpose: to make UK medical guidelines easier to learn, understand, and apply. We develop structured, easy-to-follow learning…",
+    "modifiedAt": "2026-03-11 14:08:08",
+    "seo": {
+      "title": "About",
+      "description": "AboutUs Who Are We? Guideline Genius was created in 2024 with a clear purpose: to make UK medical guidelines easier to learn, understand, and apply. We develop…"
+    }
+  },
+  {
+    "id": "1790",
+    "slug": "membership",
+    "title": "Membership",
+    "contentHtml": "<ul>\n\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"https://www.guidelinegenius.com/membership-account/\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<p\t\t\t\t\t\t\t\t\tclass=\"bdt-fancy-list-title\">\n\t\t\t\t\t\t\t\t\tProfile Overview\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"https://www.guidelinegenius.com/favourite-articles/\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<p\t\t\t\t\t\t\t\t\tclass=\"bdt-fancy-list-title\">\n\t\t\t\t\t\t\t\t\tFavourite Articles\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"https://www.guidelinegenius.com/viewed-articles/\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<p\t\t\t\t\t\t\t\t\tclass=\"bdt-fancy-list-title\">\n\t\t\t\t\t\t\t\t\tViewed Pages\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t<ul>\n\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"https://www.guidelinegenius.com/membership-account/\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<p\t\t\t\t\t\t\t\t\tclass=\"bdt-fancy-list-title\">\n\t\t\t\t\t\t\t\t\tProfile\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"https://www.guidelinegenius.com/favourite-articles/\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<p\t\t\t\t\t\t\t\t\tclass=\"bdt-fancy-list-title\">\n\t\t\t\t\t\t\t\t\tFav. Articles\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"https://www.guidelinegenius.com/viewed-articles/\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<p\t\t\t\t\t\t\t\t\tclass=\"bdt-fancy-list-title\">\n\t\t\t\t\t\t\t\t\tViewed Pages\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t</ul>",
+    "excerpt": "Profile Overview Favourite Articles Viewed Pages Profile Fav. Articles Viewed Pages",
+    "modifiedAt": "2025-10-27 06:11:28",
+    "seo": {
+      "title": "Membership",
+      "description": "Profile Overview Favourite Articles Viewed Pages Profile Fav. Articles Viewed Pages"
+    }
+  },
+  {
+    "id": "6675",
+    "slug": "home-test",
+    "title": "Home Test",
+    "contentHtml": "<h2>Latest Articles</h2>\t\t[category_bg_posts posts=\"4\" columns_desktop=\"4\" columns_tablet=\"2\" columns_mobile=\"2\" gap=\"20\"]\n\t\t\t<h1>Medical Specialities as per UKMLA Content Map</h1>\t\t[gg_category_tiles columns_desktop=\"3\" columns_tablet=\"2\" columns_mobile=\"2\" gap=\"20\"]",
+    "excerpt": "Latest Articles [category_bg_posts posts=\"4\" columns_desktop=\"4\" columns_tablet=\"2\" columns_mobile=\"2\" gap=\"20\"] Medical Specialities as per UKMLA Content Map [gg_category_tiles columns_desktop=\"3\"…",
+    "modifiedAt": "2026-04-28 10:19:57",
+    "seo": {
+      "title": "Guideline Genius | UKMLA Revision &amp; UK Medical Guidelines",
+      "description": "High-yield UKMLA revision resource based on up-to-date UK medical guidelines. Learn key clinical topics, diagnosis, and management from student-friendly guides."
+    }
+  }
+]
