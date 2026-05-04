@@ -37,5 +37,6 @@ data/wp-export.xml
 data/screenshots/
 data/screenshots-*/
 data/live-site/
+data/scrape-test/
 
-# Generated content used at build time IS committed (articles.json, categories.json, pages.json, import-report.json)
+# Generated content used at build time IS committed (articles.json, categories.json, pages.json, import-report.json, articles-live.json, articles-seo.json)

@@ -2,9 +2,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Search as SearchIcon, User as UserIcon, Menu as MenuIcon, X as CloseIcon } from "lucide-react";
+import {
+  Search as SearchIcon,
+  User as UserIcon,
+  Menu as MenuIcon,
+  X as CloseIcon,
+  Shield as ShieldIcon,
+  LogOut as LogOutIcon,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import { SearchModal } from "./SearchModal";
+import { useAuth } from "@/lib/auth";
 
 const NAV = [
   { label: "Home", href: "/" },
@@ -15,6 +23,7 @@ const NAV = [
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const { authed, ready, logout } = useAuth();
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -68,15 +77,46 @@ export function SiteHeader() {
             <span>Search…</span>
           </button>
 
-          {/* Login (right) */}
-          <Link
-            href="/login"
-            className="hidden md:flex items-center gap-1.5 shrink-0 text-[14px] font-medium hover:text-secondary transition-colors"
-            style={{ color: "#003366" }}
-          >
-            <UserIcon className="h-4 w-4" />
-            Login or signup
-          </Link>
+          {/* QBank CTA + Login/Admin/Logout (right) */}
+          <div className="hidden md:flex items-center gap-3 shrink-0">
+            <Link
+              href="/qbank"
+              className="inline-flex items-center gap-1.5 h-9 px-4 rounded-md text-[13.5px] font-bold text-white transition-opacity hover:opacity-90"
+              style={{ backgroundColor: "#5E35B1" }}
+            >
+              Question Bank
+            </Link>
+            {ready && authed ? (
+              <>
+                <Link
+                  href="/admin"
+                  className="flex items-center gap-1.5 text-[14px] font-medium hover:text-secondary transition-colors"
+                  style={{ color: "#003366" }}
+                >
+                  <ShieldIcon className="h-4 w-4" />
+                  Admin
+                </Link>
+                <button
+                  type="button"
+                  onClick={logout}
+                  className="flex items-center gap-1.5 text-[14px] font-medium hover:text-secondary transition-colors"
+                  style={{ color: "#003366" }}
+                >
+                  <LogOutIcon className="h-4 w-4" />
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link
+                href="/login"
+                className="flex items-center gap-1.5 text-[14px] font-medium hover:text-secondary transition-colors"
+                style={{ color: "#003366" }}
+              >
+                <UserIcon className="h-4 w-4" />
+                Login or signup
+              </Link>
+            )}
+          </div>
 
           {/* Mobile actions */}
           <div className="md:hidden flex items-center gap-1">
@@ -109,7 +149,10 @@ export function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   className="text-[14px] font-medium transition-colors"
-                  style={{ color: active ? "#3BADFF" : "#1a1a1a" }}
+                  style={{
+                    color: active ? "#003366" : "#1a1a1a",
+                    fontWeight: active ? 700 : 500,
+                  }}
                 >
                   {item.label}
                 </Link>

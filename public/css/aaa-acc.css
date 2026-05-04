@@ -1,0 +1,1266 @@
+/*****Breadcrumb**************/
+
+.breadcrumbs {
+  font-size: 19px;
+  line-height: 1.6;
+  margin: 8px 0 16px;
+}
+.breadcrumbs a {
+  color: #3f92ff;
+  text-decoration: none;
+}
+.breadcrumbs a:hover { text-decoration: underline; }
+.breadcrumbs .sep {
+  color: #999;
+  margin: 0 8px;
+}
+.breadcrumbs .current {
+  color: #555;
+  font-weight: 500;
+}
+
+/* Force white column dividers */
+.gg-table thead th,
+.gg-table tbody td {
+  border-right: 1px solid #fff !important;  /* white divider */
+}
+
+/* No divider on the last column */
+.gg-table thead th:last-child,
+.gg-table tbody td:last-child {
+  border-right: none !important;
+}
+
+/* Ensure borders render (avoid collapsed gridlines) */
+.gg-table {
+  border-collapse: separate !important;
+}
+
+/* Optional: desktop-only dividers (since mobile uses pill rows) */
+@media (max-width: 767px) {
+  .gg-table thead th,
+  .gg-table tbody td {
+    border-right: none !important; /* hide on mobile if desired */
+  }
+}
+
+
+.dotted-popup, .line-popup { position: relative; display: inline; }
+
+.dotted-popup-button { cursor: pointer; border-bottom: 1px dotted currentColor; }
+
+.line-popup-button   { border-bottom: 1px solid  currentColor; }
+
+.line-popup:hover .line-popup-content,
+.line-popup:focus-within .line-popup-content { display: block !important; }
+
+
+
+/**** content popup dotted******/
+
+
+
+.author-editor {
+    display: inline-grid;
+    margin-left: 5px;
+    font-size: 19px;
+    margin-top: -15px;
+}
+
+    .author-editor span {
+        font-family: 'Open Sans', sans-serif;
+    }
+
+.refe-btn {
+    border: 1px solid #281A39;
+    border-radius: 8px;
+    text-align: center;
+    display: inline-block;
+    color: #000;
+    font-size: 18px;
+    padding: 9px 15px;
+    font-weight: 500;
+    background: #F6F6F6;
+    margin-bottom: 15px;
+}
+
+
+
+.refe-btn:hover {
+    background: #281A39;
+    border: 1px solid transparent;
+    color: var(--white)!important;
+}
+
+
+
+/* The button to open the popup */
+.line-popup-button {
+       cursor: pointer;
+    text-decoration: underline;
+    border: none;
+    background: none;
+    padding: 0;
+    position: relative;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*line popup*/
+.line-popup-content {
+    font-weight: 400;
+    white-space: pre-wrap;
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 14px;
+    z-index: 99;
+    border-radius: 10px;
+    width: 450px; /* Adjust width as per your requirement */
+}
+
+.line-popup-content1 {
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 14px;
+    z-index: 1;
+    border-radius: 10px;
+    width: 367px; /* Adjust width as per your requirement */
+}
+
+.line-popup-content1 {
+    font-size: 16px !important;
+}
+
+
+    .line-popup-content {
+        font-size: 16px !important;
+    }
+
+.line-popup:hover .line-popup-content {
+    display: block;
+}
+
+.line-popup {
+    position: relative; /* Make the popup position relative to its button */
+    display: inline-block; /* Ensure the popup is inline and positions correctly */
+}
+/*end line popup*/
+
+/* The popup container */
+.dotted-popup {
+    position: relative;
+    display: inline-block;
+}
+/* The popup content */
+.dotted-popup-button {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    border: none;
+    background: none;
+    padding: 0;
+    position: relative;
+}
+
+.dotted-popup-content {
+    white-space: pre-wrap;
+    display: none;
+    background-color: white;
+    border: 1px solid #DDDDDD;
+    padding: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    z-index: 9999;
+    width: fit-content;
+    /*top: 26px;
+    right: -141px; */
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.dotted-popup-content, .line-popup-content {
+    position: absolute;
+    left: 0;
+    z-index: 9999;
+    padding: .75rem .85rem;
+    border: 1px solid #e5e7eb;
+    border-radius: .5rem;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+    line-height: 1.45;
+    font-size: .95em;
+    color: #111;
+}
+
+    .dotted-popup-content p {
+        font-size: 16px !important;
+        margin-bottom: 10px;
+    }
+
+
+    .dotted-popup-content ul li {
+        font-size: 16px !important;
+        line-height: 1.4;
+    }
+    
+
+/* Ensure the trigger/wrapper anchors the absolute popup */
+.dotted-popup,
+.line-popup {
+  position: relative;
+}
+
+/* Force the popup to fit exactly to its contents */
+.dotted-popup-content,
+.line-popup-content {
+  position: absolute;
+  display: inline-block;           /* shrink to content */
+  width: max-content !important;   /* hard force content width */
+  max-width: none !important;      /* no upper cap */
+  min-width: 0 !important;         /* avoid inherited mins */
+  box-sizing: content-box;
+
+  /* pick ONE of these depending on wrapping you want: */
+  /* 1) No wrapping (true â€œfit to one lineâ€): */
+  /* white-space: pre !important; */
+
+  /* 2) Allow wrapping but still size to longest line: */
+  white-space: normal;
+}
+
+
+.dotted-popup-content,
+.line-popup-content {
+  max-width: 80ch !important;  /* tweak as needed */
+}
+
+.dotted-popup-content ul,
+.dotted-popup-content li {
+    white-space: normal;          /* or 'initial' */
+    list-style-position: outside; /* or 'inside' if you want text closer still */
+    margin-left: 1em;             /* adjust to taste */
+    padding-left: 0;
+}
+
+
+@media (max-width: 1024px) {
+  .dotted-popup-content,
+  .line-popup-content {
+   max-width: 70vw !important;	
+  }
+
+	.ac-title {        font-size: 28px!important;   }
+}
+
+@media (max-width: 640px) {
+
+	.ac-title {        font-size: 22px!important;   }
+	
+	div[divtype="greendiv"] {
+    width: 100%;          /* <- changed */
+    max-width: 100%;      /* optional, just to be safe */
+}
+}
+
+
+/* Close button style */
+.dotted-popup .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+/* Triangle at the bottom of the popup */
+.dotted-popup .dotted-popup-content::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent white;
+}
+
+.font-size-20 {
+    font-size: 20px !important;
+}
+
+.single .elementor-widget-uicore-the-content a, .blog-fonts a {
+    color: #000;
+}
+
+
+
+
+/********************************************************
+ * MAIN POST AREA â€” IMAGE STYLE ACCORDION
+ * Scope: .post-template-default
+ ********************************************************/
+
+/* ---------- ROOT THEME TOKENS ---------- */
+.post-template-default {
+  --aaa-collapsed: #e3f2fd;  /* collapsed header bg */
+  --aaa-opened:    #e3f2fd;  /* active header bg */
+  --aaa-content:   #e3f2fd;  /* content panels bg */
+  --aaa-accent:    #003366;
+  --aaa-text:      #222;
+  --aaa-border:    #e3f2fd;
+}
+
+/* ---------- OUTER ACCORDION WRAPPER (H2 sections) ---------- */
+.post-template-default .accordion-section {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 20px 0;
+ /* overflow: hidden;  */
+  background: var(--aaa-collapsed);
+  -webkit-box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* H2 header (collapsed vs opened) */
+.post-template-default h2.accordion-header {
+  margin: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  font-size: 23px;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--aaa-collapsed);
+  color: var(--aaa-accent);
+  border-bottom: 1px solid var(--aaa-border);
+  transition: background .25s ease, color .25s ease;
+}
+.post-template-default h2.accordion-header:hover { background: #eaf4ff; }
+.post-template-default h2.accordion-header.active {
+  background: var(--aaa-opened);
+  color: var(--aaa-accent);
+}
+.post-template-default h2.accordion-header::after {
+  content: "";
+  position: absolute;
+  right: 26px; top: 50%;
+  width: 15px; height: 15px;
+  border-right: 3px solid #3BADFF;
+  border-bottom: 3px solid #3BADFF;
+  transform: translateY(-50%) rotate(-45deg);
+  transition: transform .25s ease;
+}
+.post-template-default h2.accordion-header.active::after {
+  transform: translateY(-50%) rotate(45deg);
+  border-color: #3BADFF;
+}
+
+/* H2 content area */
+.post-template-default .accordion-content {
+  display: none;
+  padding: 20px;
+  background: var(--aaa-content);  /* white card */
+  color: #333;
+  line-height: 1.55;
+	padding-bottom: 70px;
+}
+
+/* ---------- INNER ACCORDIONS (H3/H4) ---------- */
+.post-template-default h3.accordion-subheader,
+.post-template-default h4.accordion-subheader {
+  margin: 16px 0 0;
+  padding: 20px;
+  font-size: 23px;
+  font-weight: 600;
+  background: var(--aaa-collapsed);
+  color: var(--aaa-accent);
+  border: 1px solid var(--aaa-border);
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  transition: background .25s ease, color .25s ease, box-shadow .25s ease;
+}
+.post-template-default h3.accordion-subheader:hover,
+.post-template-default h4.accordion-subheader:hover {
+  background: #eaf4ff;
+}
+.post-template-default h3.accordion-subheader.active,
+.post-template-default h4.accordion-subheader.active {
+  background: var(--aaa-opened);
+  color: var(--aaa-accent);
+
+}
+.post-template-default h3.accordion-subheader::after,
+.post-template-default h4.accordion-subheader::after {
+  content:"";
+  position:absolute; right:26px; top:50%;
+  width:15px; height:15px;
+  border-right:3px solid #3BADFF;
+  border-bottom:3px solid #3BADFF;
+  transform:translateY(-50%) rotate(-45deg);
+  transition: transform .25s ease;
+}
+.post-template-default h3.accordion-subheader.active::after,
+.post-template-default h4.accordion-subheader.active::after {
+  transform:translateY(-50%) rotate(45deg);
+  border-color: #3BADFF;
+}
+
+/* Sub-content (H3/H4 panels) */
+.post-template-default .accordion-subcontent {
+  display: none;
+  margin: 10px 0 0;
+  padding: 16px;
+  background: var(--aaa-content);  /* white card */
+  border: 1px solid var(--aaa-border);
+  border-radius: 8px;
+  color: #333;
+  line-height: 1.55;
+}
+
+/* ---------- Converted H1â†’H2 titles (non-accordion) ---------- */
+.post-template-default .ac-title {
+  font-size: 28px;
+  margin: 20px 0 10px;
+  font-weight: 600;
+  color: var(--aaa-accent);
+}
+
+/* ---------- TABLES ---------- */
+.post-template-default .accpost table {
+  width: fit-content!important;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 8px;
+  font-family: 'Open Sans', sans-serif;
+  outline: 2px solid var(--aaa-accent);
+  outline-offset: 0;
+}
+
+@media (max-width: 1280px) {
+  .post-template-default .accpost table {
+    outline: 2px solid var(--aaa-accent);
+    border-left: 2px solid var(--aaa-accent);
+    border-right: 2px solid var(--aaa-accent);
+    border-radius: 8px;
+    border-collapse: separate;
+    background-clip: padding-box;
+  }
+}
+
+.post-template-default .accpost thead th {
+  background: #e3f2fd;
+  color: var(--aaa-accent);
+  font-weight: 700;
+  font-size: 17px;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--aaa-accent)!important;
+	text-align: left;
+border: 0px;
+}
+.post-template-default .accpost tbody td {
+  background: #fff;
+  color: #333;
+  font-size: 16px;
+  padding: 20px;
+  font-weight: 400;
+  /*border-bottom: 1px solid #e0e6ed;*/
+
+}
+.post-template-default .accpost tbody tr:last-child td { border-bottom: none; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 640px) {
+  .post-template-default h2.accordion-header,
+  .post-template-default h3.accordion-subheader,
+  .post-template-default h4.accordion-subheader {
+    padding: 14px 44px 14px 16px;
+    font-size: 18px;
+  }
+.post-template-default .accpost thead th {
+  font-size: 15px; }
+tbody td ul {
+    padding: 0px 8px !important;
+  }
+ 
+}
+
+/* H3 subheader + content seamless open look */
+.post-template-default h3.accordion-subheader {
+  background: #f0f7ff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+	-webkit-box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.post-template-default h3.accordion-subheader.active {
+  background: #f0f7ff;
+  color: var(--aaa-accent);
+  border-bottom: none;         /* remove divider */
+  border-radius: 8px 8px 0 0;  /* only top corners */
+}
+.post-template-default h3.accordion-subheader + .accordion-subcontent {
+  background: #f0f7ff;
+  margin: 0;
+  padding: 1px 20px 20px 20px;
+  border: 1px solid #ddd;
+  border-top: none;             /* seamless join */
+  border-radius: 0 0 8px 8px;   /* only bottom corners */
+
+}
+
+/* H4 subheader + content seamless open look */
+.post-template-default h4.accordion-subheader {
+  background: #f9fcff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+
+}
+.post-template-default h4.accordion-subheader.active {
+  background: #f9fcff;
+  color: var(--aaa-accent);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+.post-template-default h4.accordion-subheader + .accordion-subcontent {
+  background: #f9fcff;
+  margin: 0;
+   padding: 1px 20px 20px 20px;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+
+}
+
+/* H3 seamless open */
+.post-template-default h3.accordion-subheader.active {
+  background: #f0f7ff;
+  color: var(--aaa-accent);
+  border-bottom: none;         /* remove divider */
+  border-radius: 8px 8px 0 0;  /* only top corners */
+  box-shadow: none;            /* ðŸ”¹ remove shadow when open */
+}
+
+/* H4 seamless open */
+.post-template-default h4.accordion-subheader.active {
+  background: #f9fcff;
+  color: var(--aaa-accent);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  box-shadow: none;            /* ðŸ”¹ remove shadow when open */
+}
+
+/**** H5 or H6 CSS ****/
+
+/***** H5/H6 = H4 everywhere *****/
+
+/* 1) Seamless open look (header + joined panel) */
+.post-template-default h5.accordion-subheader {
+  background: #f9fcff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+}
+.post-template-default h5.accordion-subheader.active {
+  background: #f9fcff;
+  color: var(--aaa-accent);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+.post-template-default h5.accordion-subheader + .accordion-subcontent {
+  background: #f9fcff;
+  margin: 0;
+  padding: 1px 20px 20px 20px;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
+
+.post-template-default h6.accordion-subheader {
+  background: #f9fcff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+}
+.post-template-default h6.accordion-subheader.active {
+  background: #f9fcff;
+  color: var(--aaa-accent);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+.post-template-default h6.accordion-subheader + .accordion-subcontent {
+  background: #f9fcff;
+  margin: 0;
+  padding: 1px 20px 20px 20px;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
+
+/* 2) Chevron rotate on active (you only had h3/h4 before) */
+.post-template-default h5.accordion-subheader.active::after,
+.post-template-default h6.accordion-subheader.active::after {
+  transform: translateY(-50%) rotate(45deg);
+  border-color: #3BADFF;
+}
+
+/* 3) Same card/shadow/radius wrapper as h3/h4 */
+.h5-level,
+.h6-level {
+  color: #003366;
+  line-height: 1.4;
+  border-radius: 8px;
+  -webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,.25);
+  -moz-box-shadow: 4px 4px 4px 0px rgba(0,0,0,.25);
+  -o-box-shadow: 4px 4px 4px 0px rgba(0,0,0,.25);
+  -ms-box-shadow: 4px 4px 4px 0px rgba(0,0,0,.25);
+}
+
+/* 4) Keep nice rounding when open (you had for h3/h4) */
+.accordion-item.is-open.h5-level,
+.accordion-item.is-open.h6-level {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* 5) Extra bottom space for close button (you had for h3/h4) */
+.accordion-item.h5-level.is-open > .accordion-subcontent,
+.accordion-item.h6-level.is-open > .accordion-subcontent {
+  padding-bottom: 65px;
+}
+
+/* 6) Mobile sizing: include h5/h6 like h2/h3/h4 */
+@media (max-width: 640px) {
+  .post-template-default h5.accordion-subheader,
+  .post-template-default h6.accordion-subheader {
+    padding: 14px 44px 14px 16px;
+    font-size: 18px;
+  }
+}
+
+
+/* ---------- INNER ACCORDIONS (H5/H6) ---------- */
+.post-template-default h5.accordion-subheader,
+.post-template-default h6.accordion-subheader {
+  margin: 16px 0 0;
+  padding: 20px;               /* was 20x in your block */
+  font-size: 23px;
+  font-weight: 600;
+  background: #f9fcff;
+  color: var(--aaa-accent);
+  border: 1px solid var(--aaa-border);
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  transition: background .25s ease, color .25s ease, box-shadow .25s ease;
+}
+
+.post-template-default h5.accordion-subheader:hover,
+.post-template-default h6.accordion-subheader:hover {
+  background: #eaf4ff;
+}
+
+.post-template-default h5.accordion-subheader.active,
+.post-template-default h6.accordion-subheader.active {
+  background: #f9fcff
+  color: var(--aaa-accent);
+}
+
+.post-template-default h5.accordion-subheader::after,
+.post-template-default h6.accordion-subheader::after {
+  content:"";
+  position:absolute; right:26px; top:50%;
+  width:15px; height:15px;
+  border-right:3px solid #3BADFF;
+  border-bottom:3px solid #3BADFF;
+  transform:translateY(-50%) rotate(-45deg);
+  transition: transform .25s ease;
+}
+
+.post-template-default h5.accordion-subheader.active::after,
+.post-template-default h6.accordion-subheader.active::after {
+  transform:translateY(-50%) rotate(45deg);
+  border-color: #3BADFF;
+}
+
+/* Sub-content (H5/H6 panels) — uses the same shared panel styles */
+.post-template-default .accordion-subcontent {
+  display: none;
+  margin: 10px 0 0;
+  padding: 16px;
+  background: var(--aaa-content);  /* white card */
+  border: 1px solid var(--aaa-border);
+  border-radius: 8px;
+  color: #333;
+  line-height: 1.55;
+}
+
+/* H5 seamless open look */
+.post-template-default h5.accordion-subheader.active {
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+.post-template-default h5.accordion-subheader + .accordion-subcontent {
+  margin: 0;
+  padding: 1px 20px 20px 20px;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
+
+/* H6 seamless open look */
+.post-template-default h6.accordion-subheader.active {
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+.post-template-default h6.accordion-subheader + .accordion-subcontent {
+  margin: 0;
+  padding: 1px 20px 20px 20px;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
+
+@media (max-width: 640px) {
+  .post-template-default h5.accordion-subheader,
+  .post-template-default h6.accordion-subheader {
+    padding: 14px 44px 14px 16px;
+    font-size: 18px;
+  }
+}
+
+/***** H5 or H6 CSS *****/
+
+ .btn-link{
+    border: 1px solid #281A39;
+    border-radius: 8px;
+    text-align: center;
+    display: inline-block;
+    color: #000;
+    font-size: 18px;
+    padding: 9px 15px;
+    font-weight: 500;
+    background: #F6F6F6;
+    margin-bottom: 15px;
+}
+
+
+.post-template-default .ac-title {
+  font-size: 30px;
+  margin-bottom: 20px;
+margin-top:40px;
+  font-weight: 700;
+color:#071516;
+}
+
+.author-editor {
+    display: inline-grid;
+    margin-left: 5px;
+    font-size: 19px;
+    margin-top: -15px;
+}
+
+.post-template-default .btn-image {
+  display: inline-block;
+  padding: 10px 16px;
+  margin: 8px 0;
+  border: 1px solid #281A39;
+  border-radius: 6px;
+  background: #fff;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.post-template-default .btn-image:hover {
+  background: #f9fcff;
+  border-color: #003366;
+  color: #003366;
+  box-shadow: 0 2px 6px rgba(16,24,40,.1);
+}
+
+.post-template-default .btn-image::after {
+   content: "\ea6e";  
+  font-weight: 600;
+}
+
+.post-template-default .btn-image {
+  display: inline-block;
+  padding: 10px 40px 10px 16px;
+  margin: 8px 0;
+  border: 1px solid #281A39;
+  border-radius: 6px;
+  background: #fff;
+  color: #000;
+  font-size: 19px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  position: relative;
+  font-family: inherit; /* use site font unless your icon font is global */
+}
+
+.post-template-default .btn-image::after {
+ 
+  font-weight: normal;
+  margin-left: 10px;
+margin-right:20px;
+  transition: inherit;
+	content: "";
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-50%) rotate(-45deg);
+
+}
+
+.post-template-default .btn-image:hover {
+  background: #281a39;
+  color: #fff!important;
+  border-color: #281a39;
+  box-shadow: 0 2px 6px rgba(16,24,40,.2);
+}
+
+.post-template-default .btn-image:hover::after {
+  color: #fff;
+}
+
+.accpost .list::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 12px;
+    font-size: 9px;
+    font-family: "remixIcon";
+    color: #000;
+    font-weight: 400;
+}
+
+
+/* place the bar at the top and push the link to the right */
+.accpost .accordion-controls{
+  display:flex;
+  justify-content:flex-end;
+  align-items:flex-end;
+  margin-bottom:10px;   /* space under the control */
+}
+
+/* blue text link (not a button) */
+.accpost .accordion-controls .ctrl-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color: #333333;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #e3f2fd;
+    padding: 7px 15px;
+    border-radius: 6px;
+    border: 1px solid #dadada;
+	-webkit-box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+/* the bordered icon before the text */
+.accpost .accordion-controls .ctrl-link::before{
+  content:"+";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:18px;
+  height:18px;
+  border:2px solid currentColor;  /* uses the link color */
+  border-radius:4px;
+  font-size:14px;
+  line-height:1;
+}
+
+/* when JS toggles .is-close, show minus instead of plus */
+.accpost .accordion-controls .ctrl-link.is-close::before{
+  content:"\2212"; /* proper minus */
+}
+
+/* optional hover */
+.accpost .accordion-controls .ctrl-link:hover{
+  text-decoration:none;
+color:#333333;
+}
+
+.refe-btn {
+    border: 1px solid #281A39;
+    border-radius: 8px;
+    text-align: center;
+    display: inline-block;
+    color: #000!important;
+    font-size: 19px;
+    padding:  9px 35px 9px 15px;
+    font-weight: 500;
+    background: #F6F6F6;
+    margin-bottom: 15px;
+}
+
+
+.fav-btn { 
+  display: none !important; 
+}
+
+
+.form-submit #submit {
+background-color: #5E35B1;
+    color: #ffffff;
+    border: none;
+    padding: 20px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s 
+ease;
+}
+
+.form-submit #submit:hover {
+background-color: #000;
+    color: #ffffff;
+    transition: background-color 0.3s 
+ease;
+}
+
+div[divtype="greendiv"] blockquote {
+    margin: 0 1em 1em !important;
+    border-left-width: 5px !important;
+    font-style: italic!important;
+    padding: 12px 12px 20px 20px !important;
+    border-style: solid;
+    border-color: #ccc;
+    border-width: 0;
+background-color: transparent!important;
+    background-image: none!important;
+	font-size:19px!important;
+	color:#212121!important;
+}
+
+div[divtype="greendiv"]  blockquote p {  font-size: 19px !important;
+hyphens: auto;
+    line-height: 1.6!important;
+    margin-bottom: 0px;
+    font-weight: 400!important;
+	}
+
+@media (max-width: 767px) {
+    div[divtype="greendiv"]  blockquote p {  font-size: 15px !important;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  div[divtype="greendiv"] blockquote p { font-size: 17px !important; }
+}
+
+ blockquote {
+    margin: 0 1em 1em !important;
+    border-left-width: 5px !important;
+    font-style: italic!important;
+    padding: 12px 12px 20px 20px !important;
+    border-style: solid;
+    border-color: #ccc;
+    border-width: 0;
+	background-color: transparent!important;
+    background-image: none!important;
+	font-size:19px!important;
+	color:#212121!important;
+}
+
+
+
+.accordion-section p.is-empty {
+  line-height: 10px;
+  min-height: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+table td, table th p { margin-bottom:0px!important;}
+
+.h4-level, .h3-level {
+color: #003366;
+    line-height: 1.4;
+    border-radius: 8px;
+    -webkit-box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    -o-box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    -ms-box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+
+
+/**************** BOTTOM-RIGHT DOUBLE-CHEVRON (close) ****************/
+/* small clickable icon in the bottom-right corner, like your image */
+.post-template-default .panel-close{
+  position:absolute;
+  right:20px;
+  /*ottom:55px;*/
+  width:28px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  border:0;
+  padding:0;
+  cursor:pointer;
+  opacity:.85;
+  transition: opacity .2s ease, transform .15s ease;
+}
+.post-template-default .panel-close:hover{
+  opacity:1;
+  transform:translateY(-3px);
+}
+/* draw TWO tiny up chevrons using borders (exact style of your screenshot) */
+.post-template-default .panel-close::before,
+.post-template-default .panel-close::after{
+  content:"";
+  position:absolute;
+  width:12px; height:12px;
+  border-right:2px solid #3BADFF;
+  border-bottom:2px solid #3BADFF;
+  transform: rotate(224deg); /* points UP */
+}
+.post-template-default .panel-close::before{ top:5px; }  /* upper chevron */
+.post-template-default .panel-close::after { top:12px; } /* lower chevron */
+.post-template-default .panel-close:hover::before,
+.post-template-default .panel-close:hover::after{
+  border-color:#2f8cff;
+}
+
+/**************** NON-ACCORDION TITLES ***************
+.post-template-default .ac-title{
+  font-size:28px;
+  margin:20px 0 10px;
+  font-weight:700;
+  color:var(--aaa-accent);
+}*/
+
+/**************** SMALL SCREEN ****************/
+@media (max-width:640px){
+  .post-template-default h2.accordion-header,
+  .post-template-default h3.accordion-subheader,
+  .post-template-default h4.accordion-subheader{
+    padding:14px 44px 14px 16px;
+    font-size:18px;
+  }
+  .post-template-default .accordion-content,
+  .post-template-default .accordion-subcontent{
+    padding:16px;
+    padding-bottom:55px;
+  }
+	.panel-close {      bottom: 18px; }
+	.post-template-default .ac-title {    font-size: 19.5px;}
+}
+
+
+/* Make sure panels can host the footer */
+.accordion-content,
+.accordion-subcontent {
+  position: relative;
+}
+
+/* Close button as a bottom bar */
+.panel-close {
+  display: none;                 /* JS shows it when the panel is open */
+  width: 100%;
+  margin: 16px 0 0;
+  padding: 10px 14px;
+  border: 0;
+  border-top: 1px solid #eaeef5;
+  background: #f7fafc;
+  color: transparent;
+  font: 500 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  border-radius: 0 0 12px 12px;  /* matches your card rounding */
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background .2s ease, color .2s ease, opacity .2s ease;
+}
+
+/* Add a neat chevron via pseudo-element */
+.panel-close::after {
+  content: "â–¾";
+  display: inline-block;
+  transform: rotate(180deg); /* looks like an up-chevron */
+  transition: transform .2s ease;
+}
+
+/* When the wrapper is open, keep rounded bottom on the item */
+.accordion-item.is-open.h3-level,
+.accordion-item.is-open.h4-level {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* Optional: compact mode on small screens */
+@media (max-width: 640px) {
+  .panel-close { padding: 12px; font-size: 13px; }
+}
+
+/* Ensure the panel can position the close icon inside */
+.accordion-subcontent { position: relative; }
+
+/* Round close icon pinned to bottom-right */
+.panel-close {
+  display: none;                 /* your JS shows/hides it */
+  position: absolute;
+  right: 12px;
+  bottom: 25px;
+  width: 38px;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+/* center the SVG */
+.panel-close svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  pointer-events: none;
+}
+
+/* hover/active */
+.panel-close:active { transform: scale(0.96); }
+
+/* optional: when wrapper is open, keep nice rounding */
+.accordion-item.is-open.h3-level,
+.accordion-item.is-open.h4-level {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+
+.accordion-item.h3-level.is-open > .accordion-subcontent {
+  padding-bottom: 65px;
+}
+
+.accordion-item.h4-level.is-open > .accordion-subcontent {
+  padding-bottom: 65px;
+}
+
+.comments-area .comment-respond .comment-reply-title {
+    margin-top: 0;
+    margin-bottom: 26px;
+    font-weight: 700;
+    font-size: 19px;
+}
+
+.bolink a {
+  pointer-events: none !important;  /* disables clicking */
+  cursor: default !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+[class*=' ti-'] {
+    font-size: 16px !important;
+	color:#000!important;
+	    padding-right: 10px;
+}
+
+@media (max-width: 767px) {
+  .dotted-popup-content,
+  .line-popup-content {
+    box-sizing: border-box;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    z-index: 2147483647; /* on top of everything */
+    display: none;       /* JS will force-show */
+  }
+
+.line-popup { position: relative; display: inline-block; }
+.line-popup-content {
+  position: absolute !important;
+  z-index: 9999;
+  /* add your placement styles here: top/left, padding, background, etc. */
+}
+
+
+}
+
+/* default hidden; JS controls visibility */
+.dotted-popup-content,
+.line-popup-content { display:none !important; }
+
+/* basic positioning visuals (you can keep your own theme styles) */
+.dotted-popup, .line-popup { position: relative; }
+.dotted-popup-content, .line-popup-content {
+  position: absolute;
+  z-index: 2147483647;
+  box-sizing: border-box;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.panel-close{
+  display:inline-flex;
+  align-items:center;
+  gap:110px;          /* space between label and icon */
+font-size:14px;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  padding:4px 6px;
+  color:#54b7ff;
+  font:inherit;
+}
+
+
+.panel-close:hover{
+  color:#0a66c2;
+}
+.panel-close-label {font-size:16px; margin-bottom:5px;}
+
+.panel-close svg{
+  width:18px;
+  height:18px;
+  transition: transform .2s ease;
+}
+
+/* Optional: rotate icon when open */
+.is-open .panel-close svg,
+.active + .accordion-subcontent .panel-close svg { transform: rotate(180deg); }
+
+.accordion-controls {
+  display: inline-flex;      /* keeps it sized to content */
+  flex-direction: column;    /* button on top, tip underneath */
+  align-items: flex-start;   /* left-align both */
+  gap: 0.25rem;              /* small space between button & tip */
+}
+
+.accordion-controls .ctrl-note {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.accordion-controls .ctrl-note kbd {
+  padding: 1px 4px;
+  border-radius: 3px;
+  border: 1px solid #d1d5db;
+  font-size: 0.8em;
+}

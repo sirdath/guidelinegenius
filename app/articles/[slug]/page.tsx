@@ -7,8 +7,10 @@ import {
 import { PageTopBand } from "@/components/PageTopBand";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { FeedbackBox } from "@/components/FeedbackBox";
-import { CollapsibleArticleBody } from "@/components/CollapsibleArticleBody";
+import { ArticleBodyView } from "@/components/ArticleBodyView";
 import { DisclaimerBlock } from "@/components/DisclaimerBlock";
+import { getScrapedArticle } from "@/lib/scrapedArticles";
+import { getScrapedSeo } from "@/lib/scrapedSeo";
 
 export async function generateStaticParams() {
   return allArticles.map((a) => ({ slug: a.slug }));
@@ -22,9 +24,32 @@ export async function generateMetadata({
   const { slug } = await params;
   const article = getArticle(slug);
   if (!article) return {};
+
+  // Prefer scraped SEO from the live site (e.g. "Pneumothorax | UKMLA Guide"),
+  // fall back to WXR-derived AIOSEO fields, then to plain article title.
+  const seo = getScrapedSeo(slug);
+  const title = seo?.title || article.seo.title || article.title;
+  const description =
+    seo?.description || article.seo.description || article.excerpt;
+  const ogImage = seo?.og?.image;
+  const canonical = seo?.canonical;
+
   return {
-    title: article.seo.title || article.title,
-    description: article.seo.description || article.excerpt,
+    title,
+    description,
+    alternates: canonical ? { canonical } : undefined,
+    openGraph: {
+      title: seo?.og?.title || title,
+      description: seo?.og?.description || description,
+      type: (seo?.og?.type as any) || "article",
+      ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+    },
+    twitter: {
+      card: (seo?.twitter?.card as any) || "summary_large_image",
+      title: seo?.twitter?.title || title,
+      description: seo?.twitter?.description || description,
+      ...(seo?.twitter?.image ? { images: [seo.twitter.image] } : {}),
+    },
   };
 }
 
@@ -78,6 +103,7 @@ export default async function ArticlePage({
           </h1>
           {sourceLines.length > 0 && (
             <div
+              data-article-sources
               className="mx-auto mt-5 max-w-3xl space-y-1.5 text-[14.5px] leading-[1.55]"
               style={{ color: "#003366" }}
             >
@@ -110,9 +136,20 @@ export default async function ArticlePage({
           )}
         </header>
 
-        {/* Article body — h1 = group title, h2 = collapsible accordion */}
+        {/* Article body — prefer scraped live content (Elementor accordion HTML)
+            when available, otherwise fall back to WXR-derived content. Local
+            admin overrides (if any) are applied on the client. */}
         <div className="max-w-3xl mx-auto mt-12">
-          <CollapsibleArticleBody html={article.contentHtml} />
+          {(() => {
+            const scraped = getScrapedArticle(article.slug);
+            return (
+              <ArticleBodyView
+                slug={article.slug}
+                originalHtml={scraped?.bodyHtml ?? article.contentHtml}
+                isLive={Boolean(scraped?.bodyHtml)}
+              />
+            );
+          })()}
         </div>
 
         {/* Feedback */}
