@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { Sparkles, ArrowRight, Bell } from "lucide-react";
+import { Sparkles, ArrowRight, Bell, Brain, Target, Repeat } from "lucide-react";
 import { PageTopBand } from "@/components/PageTopBand";
+import { DEMO_QUESTIONS } from "@/lib/qbankData";
 
 export const metadata = {
-  title: "Question Bank — Coming Soon",
+  title: "Question Bank — UKMLA Practice",
   description:
-    "Welcome to the Guideline Genius Question Bank. Practice questions launch soon — sign up to be notified.",
+    "Practice UKMLA-style questions with explanations linked to the relevant Guideline Genius article. Demo session — 8 sample questions.",
 };
 
 export default function QbankPage() {
@@ -18,20 +19,17 @@ export default function QbankPage() {
           background: "linear-gradient(180deg, #E3F2FD 0%, #ffffff 100%)",
         }}
       >
-        <div className="mx-auto max-w-3xl px-6 lg:px-10 py-16 lg:py-24 text-center">
+        <div className="mx-auto max-w-3xl px-6 lg:px-10 py-16 lg:py-20 text-center">
           <div
             className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[12px] font-bold tracking-wider uppercase"
-            style={{
-              backgroundColor: "#5E35B1",
-              color: "#ffffff",
-            }}
+            style={{ backgroundColor: "#5E35B1", color: "#ffffff" }}
           >
             <Sparkles className="h-3.5 w-3.5" />
-            Coming Soon
+            Demo · 8 sample questions
           </div>
 
           <h1
-            className="mt-6 text-[40px] sm:text-[52px] lg:text-[60px] font-extrabold leading-[1.05] tracking-tight"
+            className="mt-6 text-[40px] sm:text-[52px] font-extrabold leading-[1.05] tracking-tight"
             style={{ color: "#003366" }}
           >
             Welcome to the{" "}
@@ -39,87 +37,111 @@ export default function QbankPage() {
           </h1>
 
           <p
-            className="mx-auto mt-6 max-w-2xl text-[18px] leading-relaxed"
+            className="mx-auto mt-6 max-w-2xl text-[17px] leading-relaxed"
             style={{ color: "#1a1a1a" }}
           >
-            We're building a UKMLA-aligned practice question bank that plugs straight into the
-            article library you already use. Timed mock exams, topic drills, spaced-repetition
-            review, and answer explanations linked back to the relevant guideline.
+            UKMLA-style multiple-choice questions with explanations linked
+            directly to the relevant Guideline Genius article — answer the
+            question, then read the source guideline alongside the explanation.
+            The same loop you'd get from Amboss or Quesmed.
           </p>
 
-          <p
-            className="mx-auto mt-4 max-w-2xl text-[16px] leading-relaxed"
-            style={{ color: "#1a1a1a" }}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/qbank/session"
+              className="inline-flex h-12 items-center px-7 rounded-md text-white font-bold text-[16px] transition-opacity hover:opacity-90"
+              style={{ backgroundColor: "#5E35B1" }}
+            >
+              Start the demo
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+            <Link
+              href="/articles"
+              className="inline-flex h-12 items-center px-6 rounded-md font-semibold text-[15px] hover:bg-white/40 transition-colors"
+              style={{ color: "#003366", border: "1.5px solid #003366" }}
+            >
+              Browse articles instead
+            </Link>
+          </div>
+
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+            <Feature
+              icon={<Target className="h-4 w-4" />}
+              title="UKMLA-aligned"
+              body="Each question maps to a specialty in the UKMLA content map and links back to a real article."
+            />
+            <Feature
+              icon={<Brain className="h-4 w-4" />}
+              title="Article side-by-side"
+              body="Submit your answer and the source guideline opens in the right pane — read both together."
+            />
+            <Feature
+              icon={<Repeat className="h-4 w-4" />}
+              title="Coming soon"
+              body="Spaced-repetition, full UKMLA bank, performance analytics and timed mocks."
+            />
+          </div>
+
+          <div
+            className="mx-auto mt-12 max-w-xl rounded-md p-4 text-[13.5px] text-left"
+            style={{
+              backgroundColor: "#fff7ed",
+              border: "1px solid #fed7aa",
+              color: "#7c2d12",
+            }}
           >
-            <strong>It's not released yet.</strong> Sign up below and we'll email you the moment
-            you can start practising.
-          </p>
+            <strong>Beta preview.</strong> {DEMO_QUESTIONS.length} sample
+            questions are loaded right now. The full bank, account-tied
+            progress and the spaced-repetition engine arrive in the next
+            phase. To get notified at full launch, subscribe below.
+          </div>
 
-          <form className="mx-auto mt-10 flex flex-col sm:flex-row gap-3 max-w-md">
+          <form className="mx-auto mt-8 flex flex-col sm:flex-row gap-3 max-w-md">
             <input
               type="email"
               placeholder="Your email"
-              className="flex-1 h-12 px-5 rounded-md border bg-white text-[15px] focus:outline-none focus:ring-2"
+              className="flex-1 h-11 px-5 rounded-md border bg-white text-[15px] focus:outline-none focus:ring-2"
               style={{ borderColor: "#cfd8e3" }}
             />
             <button
               type="button"
-              className="inline-flex h-12 items-center justify-center px-6 rounded-md text-white font-bold transition-opacity hover:opacity-90"
-              style={{ backgroundColor: "#5E35B1" }}
+              className="inline-flex h-11 items-center justify-center px-5 rounded-md text-white font-bold transition-opacity hover:opacity-90"
+              style={{ backgroundColor: "#003366" }}
             >
               <Bell className="h-4 w-4 mr-2" />
-              Notify me
+              Notify me at launch
             </button>
           </form>
-
-          <p className="mt-4 text-[13px]" style={{ color: "#6B6A6A" }}>
-            We'll only email you about the launch. Unsubscribe anytime.
-          </p>
-
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-5 text-left">
-            <Feature
-              title="Timed mock exams"
-              body="UKMLA-style sittings with full performance breakdown by topic."
-            />
-            <Feature
-              title="Topic drills"
-              body="Pick a specialty or condition, get a focused set of questions."
-            />
-            <Feature
-              title="Spaced repetition"
-              body="The system surfaces your weak areas at the right intervals."
-            />
-          </div>
-
-          <div className="mt-14">
-            <Link
-              href="/articles"
-              className="inline-flex items-center gap-2 text-[14px] font-semibold hover:underline"
-              style={{ color: "#003366" }}
-            >
-              <ArrowRight className="h-4 w-4" />
-              In the meantime, browse the article library
-            </Link>
-          </div>
         </div>
       </section>
     </div>
   );
 }
 
-function Feature({ title, body }: { title: string; body: string }) {
+function Feature({
+  icon,
+  title,
+  body,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  body: string;
+}) {
   return (
     <div
-      className="rounded-md p-5"
-      style={{
-        backgroundColor: "#ffffff",
-        border: "1px solid #cfd8e3",
-      }}
+      className="rounded-md p-5 bg-white"
+      style={{ border: "1px solid #cfd8e3" }}
     >
-      <h3 className="text-[15px] font-bold" style={{ color: "#003366" }}>
+      <div
+        className="inline-flex h-8 w-8 items-center justify-center rounded-md"
+        style={{ backgroundColor: "#E3F2FD", color: "#003366" }}
+      >
+        {icon}
+      </div>
+      <h3 className="mt-3 text-[15px] font-bold" style={{ color: "#003366" }}>
         {title}
       </h3>
-      <p className="mt-2 text-[13.5px] leading-relaxed" style={{ color: "#1a1a1a" }}>
+      <p className="mt-2 text-[13px] leading-relaxed" style={{ color: "#1a1a1a" }}>
         {body}
       </p>
     </div>

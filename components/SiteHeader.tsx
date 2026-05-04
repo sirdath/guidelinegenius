@@ -79,13 +79,15 @@ export function SiteHeader() {
 
           {/* QBank CTA + Login/Admin/Logout (right) */}
           <div className="hidden md:flex items-center gap-3 shrink-0">
-            <Link
-              href="/qbank"
+            <a
+              href="/qbank/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 h-9 px-4 rounded-md text-[13.5px] font-bold text-white transition-opacity hover:opacity-90"
               style={{ backgroundColor: "#5E35B1" }}
             >
               Question Bank
-            </Link>
+            </a>
             {ready && authed ? (
               <>
                 <Link
