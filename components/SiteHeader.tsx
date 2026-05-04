@@ -79,15 +79,13 @@ export function SiteHeader() {
 
           {/* QBank CTA + Login/Admin/Logout (right) */}
           <div className="hidden md:flex items-center gap-3 shrink-0">
-            <a
-              href="/qbank/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/qbank"
               className="inline-flex items-center gap-1.5 h-9 px-4 rounded-md text-[13.5px] font-bold text-white transition-opacity hover:opacity-90"
               style={{ backgroundColor: "#5E35B1" }}
             >
               Question Bank
-            </a>
+            </Link>
             {ready && authed ? (
               <>
                 <Link
@@ -179,6 +177,14 @@ export function SiteHeader() {
                   {item.label}
                 </Link>
               ))}
+              <Link
+                href="/qbank"
+                onClick={() => setMobileOpen(false)}
+                className="py-3 text-[15px] font-semibold border-b border-line inline-flex items-center gap-2"
+                style={{ color: "#5E35B1" }}
+              >
+                Question Bank
+              </Link>
               <Link
                 href="/login"
                 onClick={() => setMobileOpen(false)}
