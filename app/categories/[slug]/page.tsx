@@ -23,7 +23,7 @@ export async function generateMetadata({
   const cat = getCategory(slug);
   if (!cat) return {};
   return {
-    title: cat.name,
+    title: { absolute: `${cat.name} - Guideline Genius` },
     description: `${cat.articleCount} guideline articles in ${cat.name}.`,
   };
 }

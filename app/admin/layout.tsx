@@ -9,11 +9,13 @@ import {
   Search as SearchIcon,
   LogOut,
   Globe,
+  HelpCircle,
 } from "lucide-react";
 
 const NAV = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
   { href: "/admin/articles", label: "Articles", icon: FileText },
+  { href: "/admin/qbank", label: "Question bank", icon: HelpCircle },
   { href: "/admin/seo", label: "SEO bulk", icon: SearchIcon },
 ];
 

@@ -2,9 +2,9 @@ import { PageTopBand } from "@/components/PageTopBand";
 import { SplitTitle } from "@/components/SplitTitle";
 
 export const metadata = {
-  title: "About Us",
+  title: { absolute: "About | UKMLA Guide" },
   description:
-    "Guideline Genius launched in 2024 to make UK medical guidelines easier to learn — built by medical students, reviewed by specialist physicians.",
+    "About Us — Who Are We? Guideline Genius was created in 2024 with a clear purpose: to make UK medical guidelines easier to learn, understand, and apply.",
 };
 
 export default function AboutPage() {

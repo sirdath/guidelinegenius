@@ -4,8 +4,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageTopBand } from "@/components/PageTopBand";
 
 export const metadata = {
-  title: "Medical Specialities",
-  description: "Browse Guideline Genius by clinical specialty.",
+  title: { absolute: "Medical Specialities as per UKMLA Content Map | Guideline Genius" },
+  description: "Medical Specialities as per UKMLA Content Map. Browse Guideline Genius by clinical specialty.",
 };
 
 export default function CategoriesPage() {

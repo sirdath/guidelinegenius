@@ -22,10 +22,13 @@ const NAV = [
 ];
 
 export function SiteHeader() {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "";
   const { authed, ready, logout } = useAuth();
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // QBank section uses its own header (blue, with QBank-only navigation)
+  if (pathname.startsWith("/qbank")) return null;
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {

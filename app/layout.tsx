@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { TermsModal } from "@/components/TermsModal";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { AuthProvider } from "@/lib/auth";
+import { SubscriptionProvider } from "@/lib/subscription";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -14,13 +15,16 @@ const openSans = Open_Sans({
   display: "swap",
 });
 
+// Mirrors the live site exactly: home tab title and meta description
+// scraped from guidelinegenius.com, page-specific titles set via
+// `title: { absolute: ... }` per page.
 export const metadata: Metadata = {
   title: {
-    default: "Guideline Genius — High-yield resource on UK medical guidelines",
-    template: "%s · Guideline Genius",
+    default: "Guideline Genius | UKMLA Revision & UK Medical Guidelines",
+    template: "%s | UKMLA Guide",
   },
   description:
-    "High-yield resource on UK medical guidelines — built for UKMLA learners and clinicians.",
+    "High-yield UKMLA revision resource based on up-to-date UK medical guidelines. Learn key clinical topics, diagnosis, and management from student-friendly guides.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -28,11 +32,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={openSans.variable} suppressHydrationWarning>
       <body className="min-h-screen flex flex-col antialiased font-sans bg-white text-ink-body" suppressHydrationWarning>
         <AuthProvider>
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-          <TermsModal />
-          <ScrollToTop />
+          <SubscriptionProvider>
+            <SiteHeader />
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+            <TermsModal />
+            <ScrollToTop />
+          </SubscriptionProvider>
         </AuthProvider>
       </body>
     </html>

@@ -2,7 +2,7 @@ import { PageTopBand } from "@/components/PageTopBand";
 import { SplitTitle } from "@/components/SplitTitle";
 
 export const metadata = {
-  title: "Contact Us",
+  title: { absolute: "Contact Us | UKMLA Guide" },
   description: "Get in touch with the Guideline Genius team — hello@guidelinegenius.com.",
 };
 
